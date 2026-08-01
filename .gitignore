@@ -1,4 +1,5 @@
 sbi-logs
 __pycache__ 
 data
+21cm_noise_sigma.ipynb
 git rm --cached 21cm_noise_sigma.ipynb
