@@ -14,7 +14,9 @@ from py21cmemu import Emulator
 ### Get the redshift values, xHI values and redshift at which 1d power spectrum values are avilable
 
 # Load the 1D summaries test set
-test_1d_path = '/home/leon/Documents/codes/21cmEMU/docs/tutorials/test_database.h5' 
+# test_1d_path = '/home/leon/Documents/codes/21cmEMU/docs/tutorials/test_database.h5' 
+test_1d_path = 'data/test_database.h5' 
+
 
 # only need the 1D power spectrum and xHI values
 
