@@ -98,3 +98,26 @@ def simu_1d_ps(theta, redshift_value):
     ps_1d_at_z = ps_1d[index_z]
     
     return ps_1d_at_z 
+
+
+def get_ps_and_UV_LF_21cmEMU(theta, redshift_value):
+
+
+    # Predict outputs using the module-level emulator
+    _params, outputs, errors = emu.predict(theta)
+    
+    # Extract the 1D power spectrum and redshifts
+    ps_1d = outputs["PS"].value
+    PS_redshifts = np.array(outputs["PS_redshifts"].value)
+
+    # extract the UV luminosity functions and their redshifts
+    UVLFs = outputs["UVLFs"].value
+    
+    
+    # Find the index of the specified redshift
+    index_z = np.where(np.round(PS_redshifts, 2) == redshift_value)[0][0]
+    
+    # Get the 1D power spectrum at the specified redshift
+    ps_1d_at_z = ps_1d[index_z]
+    
+    return ps_1d_at_z 
