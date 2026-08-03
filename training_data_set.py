@@ -87,8 +87,10 @@ upper_bounds = np.array([-0.5, 0.0, 1.0])  # upper bounds for F_STAR10, F_ESC10,
 prior = BoxUniform(low=torch.tensor(lower_bounds), high=torch.tensor(upper_bounds), device=device)
 
 
-num_simulations = 30000
+num_simulations = 50000
 theta = prior.sample((num_simulations,))
 x = get_traning_data(theta, num_simulations)
-np.save('data/ps_training_data_f_star10_f_esc10_alpha_star_ska_1080_num_simulations_30000.npy', x)
-np.save('data/theta_training_data_f_star10_f_esc10_alpha_star_ska_1080_num_simulations_30000.npy', theta.cpu().numpy())
+# np.save('data/ps_training_data_f_star10_f_esc10_alpha_star_ska_1080_num_simulations_30000.npy', x)
+# np.save('data/theta_training_data_f_star10_f_esc10_alpha_star_ska_1080_num_simulations_30000.npy', theta.cpu().numpy())
+np.save('data/ps_training_data_f_star10_f_esc10_alpha_star_ska_1080_num_simulations_50000.npy', x)
+np.save('data/theta_training_data_f_star10_f_esc10_alpha_star_ska_1080_num_simulations_50000.npy', theta.cpu().numpy())
