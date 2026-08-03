@@ -69,6 +69,8 @@ test_PS_1D = test_PS_1D[valid_mask]
 # # print(f"  UVLFs: {test_LFs.shape}")
 # print(f"  Redshifts: {redshifts.shape}")
 
+# Build the emulator once at import time instead of on every simu_1d_ps call
+emu = Emulator(emulator="mcg", emulate_2d_ps=False)
 
 
 def simu_1d_ps(theta, redshift_value):
@@ -82,10 +84,7 @@ def simu_1d_ps(theta, redshift_value):
     Returns:
     tuple: A tuple containing the 1D power spectrum and the corresponding k values.
     """
-    # Initialize the emulator
-    emu = Emulator(emulator="mcg", emulate_2d_ps=False)
-    
-    # Predict outputs using the emulator
+    # Predict outputs using the module-level emulator
     _params, outputs, errors = emu.predict(theta)
     
     # Extract the 1D power spectrum and redshifts
